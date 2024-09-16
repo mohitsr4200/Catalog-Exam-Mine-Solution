@@ -31,7 +31,7 @@ int calculateConstantTerm(const json Data) {
     int n = Data["keys"]["n"];
     int c = 0; // The constant term
 
-    vector<pair<float,float>> cordinates(n);
+    vector<pair<long,long>> cordinates(n);
 
     for(auto i:Data)
     {
@@ -60,7 +60,7 @@ int calculateConstantTerm(const json Data) {
         float yi = i.second;
 
         float yi = log(yi)/log(xi);
-        int term = yi;
+        float term = yi;
 
         for (auto j:coordinates) {
             if (!(i.isEquals(j))) {
