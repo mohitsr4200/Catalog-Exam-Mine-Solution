@@ -41,13 +41,13 @@ int calculateConstantTerm(const json Data) {
             string hexString = i["Value"]; // Example hexadecimal string
             try {
                 // Convert hex string to unsigned long long integer
-                unsigned long long integerValue = std::stoull(hexString, nullptr, 16);
+                unsigned long long integerValue = stoull(hexString, nullptr, 16);
             }
             catch (const std::invalid_argument& e) {
-                std::cerr << "Invalid argument: " << e.what() << std::endl;
+                cerr << "Invalid argument: " << e.what() << endl;
             }
             catch (const std::out_of_range& e) {
-                    cerr << "Out of range: " << e.what() << std::endl;
+                    cerr << "Out of range: " << e.what() << endl;
             }
             l++;
         }
@@ -63,7 +63,7 @@ int calculateConstantTerm(const json Data) {
         int term = yi;
 
         for (auto j:coordinates) {
-            if (i != j) {
+            if (!(i.isEquals(j))) {
                 term *= -j.first;
                 term /= (xi - j.first);
             }
